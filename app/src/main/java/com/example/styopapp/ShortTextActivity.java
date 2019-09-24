@@ -40,7 +40,7 @@ public class ShortTextActivity extends AppCompatActivity {
 
                     Intent emailIntent = new Intent(android.content.Intent.ACTION_SEND);
                     emailIntent.putExtra(Intent.EXTRA_EMAIL  , "shc-stepan@yandex.ru");
-                    emailIntent.putExtra(Intent.EXTRA_SUBJECT, "subject of email");
+                    emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Notes feedback");
                     emailIntent.putExtra(Intent.EXTRA_TEXT   , "Hello world!");
 
                     emailIntent.setType("text/plain"); // <-- HERE
