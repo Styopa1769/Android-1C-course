@@ -2,7 +2,6 @@ package com.example.styopapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -19,10 +18,10 @@ public class ShortTextActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_short_text);
 
-        TextView date = findViewById(R.id.date);
+        TextView dateTextView = findViewById(R.id.date);
         Date currentDate = new Date();
         DateFormat formatter = DateFormat.getDateInstance();
-        date.setText(formatter.format(currentDate));
+        dateTextView.setText(formatter.format(currentDate));
 
         ConstraintLayout constraintLayout = findViewById(R.id.simpleLyout);
         constraintLayout.setOnClickListener(new View.OnClickListener() {
@@ -33,22 +32,22 @@ public class ShortTextActivity extends AppCompatActivity {
         });
 
         Button email = findViewById(R.id.email);
+        setEmailButtonListener(email);
+    }
+
+    private void setEmailButtonListener(Button email){
         email.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                try{
 
-                    Intent emailIntent = new Intent(android.content.Intent.ACTION_SEND);
-                    emailIntent.putExtra(Intent.EXTRA_EMAIL  , "shc-stepan@yandex.ru");
-                    emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Notes feedback");
-                    emailIntent.putExtra(Intent.EXTRA_TEXT   , "Hello world!");
+                Intent emailIntent = new Intent(Intent.ACTION_SEND);
+                emailIntent.putExtra(Intent.EXTRA_EMAIL  , getString(R.string.feedbackEmail));
+                emailIntent.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.notesFeedback));
+                emailIntent.putExtra(Intent.EXTRA_TEXT   , getString(R.string.hello));
 
-                    emailIntent.setType("text/plain"); // <-- HERE
-                    startActivity(emailIntent); // <-- AND HERE
+                emailIntent.setType("text/plain"); // <-- HERE
+                startActivity(emailIntent); // <-- AND HERE
 
-                } catch (Exception e){
-                    e.printStackTrace();
-                }
             }
         });
     }

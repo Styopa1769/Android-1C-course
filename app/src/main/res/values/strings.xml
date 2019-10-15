@@ -6,4 +6,7 @@
 
 Основана на ядре Linux[7] и собственной реализации виртуальной машины Java от Google. Изначально разрабатывалась компанией Android, Inc., которую затем купила Google. Впоследствии Google инициировала создание альянса Open Handset Alliance (OHA), который сейчас занимается поддержкой и дальнейшим развитием платформы.</string>
     <string name="email">email</string>
+    <string name="feedbackEmail">shc-stepan@yandex.ru</string>
+    <string name="notesFeedback">Notes feedback</string>
+    <string name="hello">Hello world!</string>
 </resources>
