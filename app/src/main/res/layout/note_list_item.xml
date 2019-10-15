@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:gravity="center">
+    tools:context=".activity.NoteDetailActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/simpleLyout"
@@ -16,9 +17,9 @@
         android:layout_marginEnd="16dp">
 
         <ImageView
-            android:id="@+id/imageView"
+            android:id="@+id/noteImageView"
             android:layout_width="140dp"
-            android:layout_height="170dp"
+            android:layout_height="140dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
@@ -33,21 +34,19 @@
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.5"
-            app:srcCompat="@drawable/text" />
+            app:layout_constraintVertical_bias="0.5" />
 
         <TextView
-            android:id="@+id/textView"
+            android:id="@+id/noteTitleView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
+            android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
-            android:text="@string/note"
-            app:layout_constraintStart_toEndOf="@+id/imageView"
-            app:layout_constraintTop_toTopOf="@+id/imageView" />
+            app:layout_constraintStart_toEndOf="@+id/noteImageView"
+            app:layout_constraintTop_toTopOf="@+id/noteImageView" />
 
         <TextView
-            android:id="@+id/shortText"
+            android:id="@+id/noteTextView"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginStart="16dp"
@@ -55,29 +54,22 @@
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="16dp"
             android:ellipsize="end"
-            android:text="@string/android"
-            app:layout_constraintBottom_toBottomOf="@+id/imageView"
+            android:maxLines="4"
+            app:layout_constraintBottom_toBottomOf="@+id/noteImageView"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/imageView"
-            app:layout_constraintTop_toBottomOf="@+id/date" />
+            app:layout_constraintStart_toEndOf="@+id/noteImageView"
+            app:layout_constraintTop_toBottomOf="@+id/noteDateView" />
 
         <TextView
-            android:id="@+id/date"
+            android:id="@+id/noteDateView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
+            android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/textView"
-            app:layout_constraintTop_toTopOf="@+id/imageView" />
+            app:layout_constraintStart_toEndOf="@+id/noteTitleView"
+            app:layout_constraintTop_toTopOf="@+id/noteImageView" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <Button
-        android:id="@+id/email"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/email"
-        android:layout_marginTop="16dp"/>
 
 </LinearLayout>
