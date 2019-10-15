@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">styopapp</string>
+    <string name="note">Note</string>
+    <string name="text">text</string>
+    <string name="android">Android («Андро́ид»[~ 1]) — операционная система для смартфонов, планшетов, электронных книг, цифровых проигрывателей, наручных часов, фитнес-браслетов, игровых приставок, ноутбуков, нетбуков, смартбуков, очков Google Glass[4], телевизоров[5] и других устройств (в 2015 году появилась поддержка автомобильных развлекательных систем[6] и бытовых роботов).
+
+Основана на ядре Linux[7] и собственной реализации виртуальной машины Java от Google. Изначально разрабатывалась компанией Android, Inc., которую затем купила Google. Впоследствии Google инициировала создание альянса Open Handset Alliance (OHA), который сейчас занимается поддержкой и дальнейшим развитием платформы.</string>
+    <string name="email">email</string>
+    <string name="feedbackEmail">shc-stepan@yandex.ru</string>
+    <string name="notesFeedback">Notes feedback</string>
+    <string name="hello">Hello world!</string>
 </resources>
