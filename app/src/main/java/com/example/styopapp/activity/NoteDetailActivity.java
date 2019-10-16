@@ -34,7 +34,7 @@ public class NoteDetailActivity extends AppCompatActivity {
         noteTextView.setText(note.getText());
 
         final ImageView noteImageView = findViewById(R.id.noteImageView);
-        noteImageView.setImageDrawable(getDrawable(note.getDrawableIdRes()));
+        noteImageView.setImageResource(note.getDrawableIdRes());
 
     }
 }

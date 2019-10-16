@@ -45,7 +45,7 @@ public class NoteViewHolder extends RecyclerView.ViewHolder {
         noteDateView.setText(formatter.format(note.getDate()));
 
         noteTitleView.setText(note.getTitle());
-        noteImageView.setImageDrawable(itemView.getContext().getDrawable(note.getDrawableIdRes()));
+        noteImageView.setImageResource(note.getDrawableIdRes());
 
         id = note.getId();
     }
