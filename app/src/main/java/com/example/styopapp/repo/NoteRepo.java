@@ -24,7 +24,7 @@ public class NoteRepo {
         for (String name : names){
             imgId = resources.getIdentifier(name, "drawable", context.getPackageName());
             stringId = resources.getIdentifier(name, "string", context.getPackageName());
-            NOTE_LIST.put(id,new Note(id,new Date(),context.getString(stringId),"info about "+name,imgId));
+            NOTE_LIST.put(id,new Note(id,new Date(),context.getString(stringId),name,imgId));
             id++;
         }
     }
