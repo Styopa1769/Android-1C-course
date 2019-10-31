@@ -3,6 +3,7 @@ package com.example.styopapp.activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -28,22 +29,22 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    /*public void showDetailFragment(@NonNull final String name) {
-        final View detailView = findViewById(R.id.demoDetailContainer);
+    public void showDetailFragment(final long id) {
+        final View detailView = findViewById(R.id.noteDetailView);
         if (detailView == null) {
             getSupportFragmentManager()
                     .beginTransaction()
-                    .replace(R.id.demoMainContainer, DetailFragment.newInstance(name))
+                    .replace(R.id.mainContainer, NoteDetailFragment.newInstance(id))
                     .addToBackStack(null)
                     .commit();
         } else {
             getSupportFragmentManager()
                     .beginTransaction()
-                    .replace(R.id.demoDetailContainer, DetailFragment.newInstance(name))
+                    .replace(R.id.mainContainer, NoteDetailFragment.newInstance(id))
                     .addToBackStack(null)
                     .commit();
         }
-    }*/
+    }
 
     @Override
     public void onBackPressed() {

@@ -7,7 +7,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.styopapp.R;
+import com.example.styopapp.activity.MainActivity;
 import com.example.styopapp.activity.NoteDetailActivity;
+import com.example.styopapp.activity.NoteDetailFragment;
 import com.example.styopapp.model.Note;
 
 import java.text.DateFormat;
@@ -29,11 +31,16 @@ public class NoteViewHolder extends RecyclerView.ViewHolder {
         noteDateView = itemView.findViewById(R.id.noteDateView);
         noteTitleView = itemView.findViewById(R.id.noteTitleView);
         noteImageView = itemView.findViewById(R.id.noteImageView);
-        noteTextView.setOnClickListener(new View.OnClickListener() {
+        /*noteTextView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(final View v) {
                 final Context context = v.getContext();
-                context.startActivity(NoteDetailActivity.getIntent(context, id));
+            }
+        });*/
+        view.findViewById(R.id.noteDetailView).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(final View v) {
+                ((MainActivity) getActivity()).showDetailFragment(v);
             }
         });
     }
