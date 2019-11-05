@@ -16,7 +16,11 @@ import com.example.styopapp.R;
 import com.example.styopapp.adapter.NoteAdapter;
 import com.example.styopapp.repo.NoteRepo;
 
-public class NoteListFragment extends Fragment {
+public class NoteListFragment extends Fragment implements NoteAdapter.Listener{
+
+    public static final String TAG = "ListFragment";
+
+    public NoteListFragment(){}
 
     public static Fragment newInstance() {
         return new NoteListFragment();
@@ -47,5 +51,11 @@ public class NoteListFragment extends Fragment {
         final NoteAdapter adapter = new NoteAdapter();
         recyclerView.setAdapter(adapter);
         adapter.setNoteList(NoteRepo.getNoteList());
+        adapter.setListener(this);
+    }
+
+    @Override
+    public void onNoteClick(long id) {
+        ((MainActivity) getActivity()).showDetailFragment(id);
     }
 }

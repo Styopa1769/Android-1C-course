@@ -16,7 +16,17 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class NoteAdapter extends RecyclerView.Adapter<NoteViewHolder> {
 
+    public interface Listener{
+        void onNoteClick(long id);
+    }
+
     private List<Note> noteList = new ArrayList<>();
+
+    private Listener listener;
+
+    public void setListener(final Listener listener){
+        this.listener = listener;
+    }
 
     public void setNoteList(final List<Note> noteList) {
         this.noteList = noteList;
@@ -30,7 +40,7 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteViewHolder> {
                 R.layout.note_list_item, parent,
                 false
         );
-        return new NoteViewHolder(view);
+        return new NoteViewHolder(view, listener);
     }
 
     @Override

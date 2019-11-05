@@ -9,8 +9,10 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.styopapp.R;
+import com.example.styopapp.adapter.NoteAdapter;
 
 public class MainActivity extends AppCompatActivity {
+
     public static Intent getIntent(@NonNull final Context context) {
         return new Intent(context, MainActivity.class);
     }
@@ -23,27 +25,22 @@ public class MainActivity extends AppCompatActivity {
         if (savedInstanceState == null) {
             getSupportFragmentManager()
                     .beginTransaction()
-                    .replace(R.id.mainContainer, NoteListFragment.newInstance())
+                    .replace(R.id.mainContainer, NoteListFragment.newInstance(), NoteListFragment.TAG)
                     .addToBackStack(null)
                     .commit();
         }
     }
 
     public void showDetailFragment(final long id) {
-        final View detailView = findViewById(R.id.noteDetailView);
-        if (detailView == null) {
-            getSupportFragmentManager()
-                    .beginTransaction()
-                    .replace(R.id.mainContainer, NoteDetailFragment.newInstance(id))
-                    .addToBackStack(null)
-                    .commit();
-        } else {
-            getSupportFragmentManager()
-                    .beginTransaction()
-                    .replace(R.id.mainContainer, NoteDetailFragment.newInstance(id))
-                    .addToBackStack(null)
-                    .commit();
+        if (getSupportFragmentManager().findFragmentByTag(NoteDetailFragment.TAG) != null) {
+            getSupportFragmentManager().popBackStack();
         }
+
+        getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.mainContainer, NoteDetailFragment.newInstance(id), NoteDetailFragment.TAG)
+                .addToBackStack(null)
+                .commit();
     }
 
     @Override

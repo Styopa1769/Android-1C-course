@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -16,19 +18,29 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.styopapp.R;
 import com.example.styopapp.adapter.NoteAdapter;
+import com.example.styopapp.model.Note;
 import com.example.styopapp.repo.NoteRepo;
 
-public class NoteDetailFragment extends Fragment {
+public class NoteDetailFragment extends Fragment{
 
-    private long noteId;
+    public static final String TAG = "DetailFragment";
 
-    public NoteDetailFragment(long noteId) {
+    private static final String ID_KEY = "ID_KEY";
+
+    public NoteDetailFragment() {
         super();
-        this.noteId = noteId;
     }
 
     public static Fragment newInstance(long id) {
-        return new NoteDetailFragment(id);
+
+        final Fragment fragment = new NoteDetailFragment();
+
+        final Bundle args = new Bundle();
+        args.putLong(ID_KEY,id);
+
+        fragment.setArguments(args);
+
+        return fragment;
     }
 
 
@@ -36,27 +48,21 @@ public class NoteDetailFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.activity_note_list, container, false);
+        return inflater.inflate(R.layout.activity_note_detail, container, false);
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        final RecyclerView recyclerView = view.findViewById(R.id.noteRecyclerView);
 
-        LinearLayoutManager linearLayoutManager;
+        super.onViewCreated(view,savedInstanceState);
 
-        if (getResources().getBoolean(R.bool.is_landscape)){
-            linearLayoutManager = new GridLayoutManager(getContext(),2);
-        } else {
-            linearLayoutManager = new LinearLayoutManager(getContext());
-        }
+        final Note note = NoteRepo.getNoteById(getArguments().getLong(ID_KEY));
 
-        recyclerView.setLayoutManager(linearLayoutManager);
-        recyclerView.setHasFixedSize(true);
-        recyclerView.getRecycledViewPool().setMaxRecycledViews(0, 15);
+        final TextView noteTextView = view.findViewById(R.id.noteTextView);
+        noteTextView.setText(note.getText());
 
-        final NoteAdapter adapter = new NoteAdapter();
-        recyclerView.setAdapter(adapter);
-        adapter.setNoteList(NoteRepo.getNoteList());
+        final ImageView noteImageView = view.findViewById(R.id.noteImageView);
+        noteImageView.setImageResource(note.getDrawableIdRes());
+
     }
 }
