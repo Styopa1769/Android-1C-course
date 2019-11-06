@@ -38,7 +38,7 @@ public class NoteListFragment extends Fragment implements NoteAdapter.Listener{
 
         LinearLayoutManager linearLayoutManager;
 
-        if (getResources().getBoolean(R.bool.is_landscape)){
+        if (getResources().getBoolean(R.bool.is_landscape) && getResources().getBoolean(R.bool.is_phone)){
             linearLayoutManager = new GridLayoutManager(getContext(),2);
         } else {
             linearLayoutManager = new LinearLayoutManager(getContext());

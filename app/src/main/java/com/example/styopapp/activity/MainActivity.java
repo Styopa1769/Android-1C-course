@@ -3,13 +3,11 @@ package com.example.styopapp.activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.styopapp.R;
-import com.example.styopapp.adapter.NoteAdapter;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -38,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
 
         getSupportFragmentManager()
                 .beginTransaction()
-                .replace(R.id.mainContainer, NoteDetailFragment.newInstance(id), NoteDetailFragment.TAG)
+                .replace(R.id.detailContainer, NoteDetailFragment.newInstance(id), NoteDetailFragment.TAG)
                 .addToBackStack(null)
                 .commit();
     }
