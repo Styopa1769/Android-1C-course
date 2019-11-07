@@ -38,7 +38,7 @@ public class NoteListFragment extends Fragment implements NoteAdapter.Listener{
 
         LinearLayoutManager linearLayoutManager;
 
-        if (getResources().getBoolean(R.bool.is_landscape) && getResources().getBoolean(R.bool.is_phone)){
+        if ((getResources().getBoolean(R.bool.is_landscape) && getResources().getBoolean(R.bool.is_phone)) || (!getResources().getBoolean(R.bool.is_landscape) && !getResources().getBoolean(R.bool.is_phone))){
             linearLayoutManager = new GridLayoutManager(getContext(),2);
         } else {
             linearLayoutManager = new LinearLayoutManager(getContext());
@@ -46,7 +46,7 @@ public class NoteListFragment extends Fragment implements NoteAdapter.Listener{
 
         recyclerView.setLayoutManager(linearLayoutManager);
         recyclerView.setHasFixedSize(true);
-        recyclerView.getRecycledViewPool().setMaxRecycledViews(0, 15);
+        recyclerView.getRecycledViewPool().setMaxRecycledViews(0, 6);
 
         final NoteAdapter adapter = new NoteAdapter();
         recyclerView.setAdapter(adapter);
