@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -15,6 +16,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.styopapp.R;
 import com.example.styopapp.adapter.NoteAdapter;
 import com.example.styopapp.repo.NoteRepo;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class NoteListFragment extends Fragment implements NoteAdapter.Listener{
 
@@ -52,6 +54,14 @@ public class NoteListFragment extends Fragment implements NoteAdapter.Listener{
         recyclerView.setAdapter(adapter);
         adapter.setNoteList(NoteRepo.getNoteList());
         adapter.setListener(this);
+
+        FloatingActionButton fab = view.findViewById(R.id.addNoteButton);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(view.getContext(),"camera pressed",Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     @Override

@@ -16,4 +16,5 @@
     <string name="feedbackEmail">shc-stepan@yandex.ru</string>
     <string name="notesFeedback">Notes feedback</string>
     <string name="hello">Hello world!</string>
+    <string name="addNoteButton">button to add new note</string>
 </resources>
