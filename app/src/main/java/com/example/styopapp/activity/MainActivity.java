@@ -41,6 +41,10 @@ public class MainActivity extends AppCompatActivity {
                 .commit();
     }
 
+    public void openCamera(){
+        startActivity(new Intent(this,CameraActivity.class));
+    }
+
     @Override
     public void onBackPressed() {
         if (getSupportFragmentManager().getBackStackEntryCount() == 1) {
